@@ -1,0 +1,7 @@
+{% if show %}
+<ul>
+{% for s in show %}
+    <li><a href="/shows/{{ s.id }}/">{{ s.title }}</a></li>
+{% endfor %}
+</ul>
+{% endif %}
