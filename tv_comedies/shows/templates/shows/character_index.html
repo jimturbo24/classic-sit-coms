@@ -1,0 +1,9 @@
+<h2>{{ characters|length }} characters in the db</h2>
+
+{% if characters %}
+<ul>
+{% for s in characters %}
+    <li><a href="/tv_comedies/characters/{{ s.id }}/">{{ s.name }}</a></li>
+{% endfor %}
+</ul>
+{% endif %}

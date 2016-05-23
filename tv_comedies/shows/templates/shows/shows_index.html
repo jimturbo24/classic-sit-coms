@@ -1,9 +1,9 @@
-<h2>{{ show|length }} shows in the db</h2>
+<h2>{{ shows|length }} shows in the db</h2>
 
-{% if show %}
+{% if shows %}
 <ul>
-{% for s in show %}
-    <li><a href="/shows/{{ s.id }}/">{{ s.title }}</a></li>
+{% for s in shows %}
+    <li><a href="/tv_comedies/shows/{{ s.id }}/">{{ s.title }}</a></li>
 {% endfor %}
 </ul>
 {% endif %}
