@@ -1,0 +1,9 @@
+<h2>{{ seasons|length }} seasons in the db</h2>
+
+{% if seasons %}
+<ul>
+{% for s in seasons %}
+    <li><a href="/tv_comedies/seasons/{{ s.id }}/">Saeson #{{ s.name }}</a></li>
+{% endfor %}
+</ul>
+{% endif %}

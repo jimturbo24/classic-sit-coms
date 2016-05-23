@@ -21,14 +21,20 @@ class Season(models.Model):
     beginning_date = models.DateField()
     end_date = models.DateField()
 
+    def __str__(self):
+        return str(self.name)
+
 class Episode(models.Model):
     name = models.CharField(max_length=128)
     air_date = models.DateField(auto_now_add=True)
     description = models.TextField(null=False, blank=False)
     director = models.OneToOneField('Director', null=True)
-    writer = models.CharField(max_length=128)
+    writers = models.ManyToManyField('Writer')
     characters = models.ManyToManyField('Character')
     length = models.PositiveSmallIntegerField(null=False, default=0)
+
+    def __str__(self):
+        return self.name
 
 class Character(models.Model):
     name = models.CharField(max_length=128)
@@ -36,15 +42,24 @@ class Character(models.Model):
     actor = models.OneToOneField('Actor', null=True)
     show = models.ForeignKey('Show')
 
+    def __str__(self):
+        return self.name
+
 class Actor(models.Model):
     name = models.CharField(max_length=128)
     age = models.PositiveIntegerField(null=False, default=0)
     bio = models.TextField(null=False, blank=False)
 
+    def __str__(self):
+        return self.name
+
 class Director(models.Model):
     name = models.CharField(max_length=128)
     age = models.PositiveIntegerField(null=False, default=0)
     bio = models.TextField(null=False, blank=False)
+
+    def __str__(self):
+        return self.name
 
 class Review(models.Model):
     review_text = models.TextField(max_length=2000, blank=False)
@@ -53,3 +68,13 @@ class Review(models.Model):
     show = models.ForeignKey(Show, null=False, on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
     modefied = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return str(self.user) + ": " + str(self.show)
+
+class Writer(models.Model):
+    name = models.CharField(max_length=128)
+    bio = models.TextField(null=False, blank=False)
+
+    def __str__(self):
+        return self.name

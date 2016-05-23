@@ -1,0 +1,9 @@
+<h2>{{ episodes|length }} episodes in the db</h2>
+
+{% if episodes %}
+<ul>
+{% for s in episodes %}
+    <li><a href="/tv_comedies/episodes/{{ s.id }}/">{{ s.name }}</a></li>
+{% endfor %}
+</ul>
+{% endif %}

@@ -1,0 +1,9 @@
+<h2>{{ reviews|length }} reviews in the db</h2>
+
+{% if reviews %}
+<ul>
+{% for s in reviews %}
+    <li><a href="/tv_comedies/reviews/{{ s.id }}/">{{ s.show }}: {{ s.user }}</a></li>
+{% endfor %}
+</ul>
+{% endif %}
