@@ -1,16 +1,25 @@
 from django.db import models
 from django.contrib.auth.models import User
+from datetime import date
+from dateutil.relativedelta import relativedelta
 
+class ShowManager(models.Manager):
+    def show_count(self):
+        return self.count()
 
 class Show(models.Model):
     title = models.CharField(max_length=128)
     description = models.TextField(null=False, blank=False)
     tag = models.SlugField(null=False, db_index=True)
-    release_date = models.DateField()
+    release_date = models.DateField(auto_now=True)
     country = models.CharField(max_length=128)
     language = models.CharField(max_length=128)
     tv_rating = models.CharField(max_length=128)
     production_co = models.CharField(max_length=128)
+    objects = ShowManager()
+
+    def is_kid_friendly(self):
+        return self.tv_rating in ('TV-Y', 'TV-Y7', 'G')
 
     def __str__(self):
         return self.title
@@ -47,16 +56,24 @@ class Character(models.Model):
 
 class Actor(models.Model):
     name = models.CharField(max_length=128)
-    age = models.PositiveIntegerField(null=False, default=0)
+    birth_day = models.DateField(auto_now=False, default=date.today)
     bio = models.TextField(null=False, blank=False)
+
+    @property
+    def age(self):
+        return relativedelta(date.today(), self.birth_day)
 
     def __str__(self):
         return self.name
 
 class Director(models.Model):
     name = models.CharField(max_length=128)
-    age = models.PositiveIntegerField(null=False, default=0)
+    birth_day = models.DateField(auto_now=False, default=date.today)
     bio = models.TextField(null=False, blank=False)
+
+    @property
+    def age(self):
+        return relativedelta(date.today(), self.birth_day)
 
     def __str__(self):
         return self.name
@@ -68,6 +85,14 @@ class Review(models.Model):
     show = models.ForeignKey(Show, null=False, on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
     modefied = models.DateTimeField(auto_now=True)
+
+    def trans_rate(self):
+        if self.user_rating < 3:
+            return 'Bad'
+        elif self.user_rating > 7:
+            return 'Great'
+        else:
+            return 'Good'
 
     def __str__(self):
         return str(self.user) + ": " + str(self.show)
