@@ -1,3 +1,7 @@
+{% extends "shows/base.html" %}
+
+{% block content %}
+
 <h2>{{ actors|length }} actorss in the db</h2>
 
 {% if actors %}
@@ -7,3 +11,4 @@
 {% endfor %}
 </ul>
 {% endif %}
+{% endblock %}

@@ -1,3 +1,7 @@
+{% extends "shows/base.html" %}
+
+{% block content %}
+
 <article>
   <h1>Season #{{ season.name }}</h1>
 
@@ -6,3 +10,5 @@
   <h3>End Date</h3><p>{{ season.end_date }}</p>
 
 </article>
+
+{% endblock %}
