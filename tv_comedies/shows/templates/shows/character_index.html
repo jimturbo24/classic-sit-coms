@@ -1,3 +1,7 @@
+{% extends "shows/base.html" %}
+
+{% block content %}
+
 <h2>{{ characters|length }} characters in the db</h2>
 
 {% if characters %}
@@ -7,3 +11,5 @@
 {% endfor %}
 </ul>
 {% endif %}
+
+{% endblock %}

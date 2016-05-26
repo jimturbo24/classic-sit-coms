@@ -1,3 +1,7 @@
+{% extends "shows/base.html" %}
+
+{% block content %}
+
 <article>
   <h1>{{ character.name }}</h1>
 
@@ -6,3 +10,5 @@
   <h3>TV Show</h3><p>{{ character.show }}</p>
 
 </article>
+
+{% endblock %}

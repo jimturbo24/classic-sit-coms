@@ -1,3 +1,7 @@
+{% extends "shows/base.html" %}
+
+{% block content %}
+
 <h2>{{ episodes|length }} episodes in the db</h2>
 
 {% if episodes %}
@@ -7,3 +11,5 @@
 {% endfor %}
 </ul>
 {% endif %}
+
+{% endblock %}

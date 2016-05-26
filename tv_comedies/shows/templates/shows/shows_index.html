@@ -1,9 +1,15 @@
+{% extends "shows/base.html" %}
+
+{% block content %}
+
 <h2>{{ shows|length }} shows in the db</h2>
 
 {% if shows %}
 <ul>
 {% for s in shows %}
-    <li><a href="/tv_comedies/shows/{{ s.id }}/">{{ s.title }}</a></li>
+    <li><a href="{% url 'shows:show-details' s.id %}">{{ s.title }}</a></li>
 {% endfor %}
 </ul>
 {% endif %}
+
+{% endblock %}
