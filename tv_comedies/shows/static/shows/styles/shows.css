@@ -5,3 +5,15 @@ body {
   padding: 20px 15px;
   text-align: left;
 }
+/* navbar */
+.navbar {
+    background-color: #0033CC;
+    border-color: #E7E7E7;
+}
+/* navbar Home button*/
+.navbar-inverse .navbar-nav>.active>a,
+.navbar-inverse .navbar-nav>.active>a:focus,
+.navbar-inverse .navbar-nav>.active>a:hover {
+    background-color: #0000CC;
+    border-color: #E7E7E7;
+}

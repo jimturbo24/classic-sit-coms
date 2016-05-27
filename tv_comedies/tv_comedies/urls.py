@@ -17,6 +17,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 urlpatterns = [
+    url(r'^', include('django.contrib.auth.urls')),
     url(r'^tv_comedies/', include('shows.urls')),
     url(r'^admin/', admin.site.urls),
 ]
