@@ -1,8 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse, Http404
 from django.template import loader
+from django.contrib.auth.decorators import login_required
 from .models import Show, Actor, Episode, Season, Character, Director, Review, Writer
 
+@login_required
 def show_index(request):
     showList = Show.objects.all()
     templ = loader.get_template('shows/shows_index.html')
@@ -35,6 +37,7 @@ def actor_view(request, actor_id):
 
     return render(request, 'shows/actor_details.html', context)
 
+@login_required
 def episode_index(request):
     episodeList = Episode.objects.all()
     templ = loader.get_template('shows/episode_index.html')
