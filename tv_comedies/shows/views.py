@@ -4,6 +4,9 @@ from django.template import loader
 from django.contrib.auth.decorators import login_required
 from .models import Show, Actor, Episode, Season, Character, Director, Review, Writer
 
+def new_user(request):
+    return render(request, 'shows/new_user.html')
+
 @login_required
 def show_index(request):
     showList = Show.objects.all()

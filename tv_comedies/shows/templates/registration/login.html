@@ -15,24 +15,35 @@
     {% endif %}
 {% endif %}
 
-<form method="post" action="{% url 'login' %}">
+<form class="form-horizontal" method="post" action="{% url 'login' %}">
   {% csrf_token %}
-  <table>
-    <tr>
-        <td>{{ form.username.label_tag }}</td>
-        <td>{{ form.username }}</td>
-    </tr>
-    <tr>
-        <td>{{ form.password.label_tag }}</td>
-        <td>{{ form.password }}</td>
-    </tr>
-  </table>
+  <fieldset>
+    <legend>Login to Classic Comedies</legend>
+    <div class="form-group">
+      <label for="id_username" class="col-lg-2 control-label">Username</label>
+      <div class="col-lg-2">
+        <input type="text" class="form-control" id="id_username" placeholder="Username" name="username">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="id_password" class="col-lg-2 control-label">Password</label>
+      <div class="col-lg-2">
+        <input type="password" class="form-control" id="id_password" placeholder="Password" name="password">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+        <button type="reset" class="btn btn-default">Cancel</button>
+        <button type="submit" value="login" class="btn btn-primary">Submit</button>
+        <div>
+          <p style=margin-top:10px class=""><a href="{% url 'password_reset' %}">Lost password?</a></p>
+        </div>
+      </div>
+    </div>
 
-  <input type="submit" value="login" />
-  <input type="hidden" name="next" value="{{ next }}" />
+  </fieldset>
 </form>
 
 {# Assumes you setup the password_reset view in your URLconf #}
-<p><a href="{% url 'password_reset' %}">Lost password?</a></p>
 
 {% endblock %}

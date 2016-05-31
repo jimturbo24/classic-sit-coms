@@ -13,7 +13,10 @@
   <h3>Production Company</h3><p>{{ show.production_co }}</p>
 
 </article>
-<a href="{% url 'shows:show-index' %}" class="btn btn-primary btn-sm active" role="button">Back</a>
-<!-- <p><a href="{% url 'shows:show-index' %}">back</a></p> -->
+<ul class="pager">
+  <li><a href="#" class="btn btn-primary">Previous</a></li>
+  <li><a href="{% url 'shows:show-index' %}" class="btn btn-primary" role="button">Back</a></li>
+  <li><a href="#" class="btn btn-primary">Next</a></li>
+</ul>
 
 {% endblock %}
