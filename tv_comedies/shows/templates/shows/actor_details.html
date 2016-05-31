@@ -9,6 +9,12 @@
   <h3>Biography</h3><p>{{ actor.bio }}</p>
 
 </article>
-<a href="{% url 'shows:actor-index' %}" class="btn btn-primary btn-sm active" role="button">Back</a>
+
+<ul class="pager">
+  <li><a href="#" class="btn btn-primary">Previous</a></li>
+  <li><a href="{% url 'shows:actor-index' %}" class="btn btn-primary" role="button">Back</a></li>
+  <li><a href="#" class="btn btn-primary">Next</a></li>
+</ul>
+
 
 {% endblock %}

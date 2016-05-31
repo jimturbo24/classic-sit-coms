@@ -15,6 +15,12 @@ Cast/Crew
 Reviews
 Trivia
 
+## Modify the look/feel of the page
+Story: As a user I want to see a clean modern page so that I can enjoy the experience
+Estimate: 3 hrs.
+Actual: 4.5 hrs.
+Pull Request:
+
 ## Create New User
 Story: As a new user I want create a new account so that I can use the site.
 Estimate: 2 hrs.
