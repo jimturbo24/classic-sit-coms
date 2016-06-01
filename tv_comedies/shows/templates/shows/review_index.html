@@ -12,4 +12,12 @@
 </ul>
 {% endif %}
 
+{% if 'shows.add_review' in perms %}
+  <br><p><a href="#">Add Review</a></p>
+{% endif %}
+
+{% if 'shows.restrict_some_action' in perms %}
+  <p><a href="#">Do Something to the Review</a></p>
+{% endif %}
+
 {% endblock %}

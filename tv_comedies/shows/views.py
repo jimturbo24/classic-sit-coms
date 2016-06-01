@@ -1,11 +1,30 @@
 from django.shortcuts import render
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.template import loader
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required, permission_required
 from .models import Show, Actor, Episode, Season, Character, Director, Review, Writer
+from .forms import NewUserForm
+
+@permission_required('shows.add_review')
+def add_review(request):
+    # Code to add a review goes here
+    pass
+
+@permission_required('shows.restrict_some_action')
+def do_something_to_review(request):
+    # Code to do something to the review goes here
+    pass
 
 def new_user(request):
-    return render(request, 'shows/new_user.html')
+    form = NewUserForm(request.POST)
+    if form.is_valid():
+        user_name = form.cleaned_data['user_name']
+        password = form.cleaned_data['password']
+        user = User.objects.create_user(username=user_name, password=password)
+        return HttpResponseRedirect('/login/')
+
+    return render(request, 'shows/new_user.html', {'form': form})
 
 @login_required
 def show_index(request):
