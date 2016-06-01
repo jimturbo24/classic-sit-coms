@@ -1,11 +1,20 @@
 from django.shortcuts import render
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.template import loader
+from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from .models import Show, Actor, Episode, Season, Character, Director, Review, Writer
+from .forms import NewUserForm
 
 def new_user(request):
-    return render(request, 'shows/new_user.html')
+    form = NewUserForm(request.POST)
+    if form.is_valid():
+        user_name = form.cleaned_data['user_name']
+        password = form.cleaned_data['password']
+        user = User.objects.create_user(username=user_name, password=password)
+        return HttpResponseRedirect('/login/')
+
+    return render(request, 'shows/new_user.html', {'form': form})
 
 @login_required
 def show_index(request):
