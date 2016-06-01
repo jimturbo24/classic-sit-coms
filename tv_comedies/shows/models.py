@@ -86,6 +86,10 @@ class Review(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     modefied = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        permissions = (("restrict_some_action", "Restrict some action"),
+                       ("Restrict_another_action", "Restrict another action"))
+
     def trans_rate(self):
         if self.user_rating < 3:
             return 'Bad'
