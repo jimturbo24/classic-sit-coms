@@ -12,7 +12,7 @@ import random
 print('DJANGO_SECRET_KEY="' + ''.join([random.SystemRandom().choice('abcdefghijklmnopqrstuvwxyz0123456789@#$%^&*(-_=+)') for i in range(50)]) + '"')
 ```
 * At the terminal command line run: $`heroku create`
-* Step 4 will create an app with a random name like "damp-taiga-14318"
+* The previous step will create an app with a random name like "damp-taiga-14318"
 * At the command line run: $`heroku config:set DJANGO_SETTINGS_MODULE="tv_comedies.settings_production" --app <app name from step 4>`
 * Next run: $`heroku config:set DJANGO_SECRET_KEY="<key from step 3>" --app <app name from step 4>`
 * Next run: $`heroku git:remote --app <app name from step 4>`
