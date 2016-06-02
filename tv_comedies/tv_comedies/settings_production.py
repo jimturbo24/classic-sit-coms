@@ -2,7 +2,7 @@ import os
 from .settings import *
 
 DEBUG = False
-ALLOWED_HOSTS = ['127.0.0.1', '0.0.0.0']
+ALLOWED_HOSTS = ['127.0.0.1', '0.0.0.0', 'damp-taiga-14318.herokuapp.com']
 
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
