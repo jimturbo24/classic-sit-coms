@@ -5,6 +5,7 @@ tv_comedies is a site for fans of classic situational comedies. This site is sti
 ### How to deploy this app to Heroku
 * Clone this repository (Fork it first if you wish to modify it at some point)
 * Sign up for a Heroku account if you don't have one, then download the Heroku [toolbelt](https://toolbelt.heroku.com/).
+* Login to Heroku at the terminal command line with: $`heroku login`
 * In a Python 3 shell (eg. iPython3) run (print a key for use in step 7):
 ```python
 import random
@@ -15,7 +16,7 @@ print('DJANGO_SECRET_KEY="' + ''.join([random.SystemRandom().choice('abcdefghijk
 * At the command line run: $`heroku config:set DJANGO_SETTINGS_MODULE="tv_comedies.settings_production" --app <app name from step 4>`
 * Next run: $`heroku config:set DJANGO_SECRET_KEY="<key from step 3>" --app <app name from step 4>`
 * Next run: $`heroku git:remote --app <app name from step 4>`
-* From the classic-sit-coms directory run: $ `git subtree push --prefix tv_comedies/ heroku master`
+* From the classic-sit-coms directory run: $`git subtree push --prefix tv_comedies/ heroku master`
 * Next run: $`heroku ps:scale web=1`
 * View the app in a web browser by navigating to: `https://<app name from step 4>.herokuapp.com/login/`
 
