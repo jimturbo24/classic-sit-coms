@@ -27,5 +27,5 @@ urlpatterns = [
     url(r'^writers/$', views.writer_index, name="writer-index" ),
     url(r'^writers/(?P<writer_id>[0-9]+)/$', views.writer_view, name='writer-details'),
 
-    url(r'^create-account/$', views.new_user, name="new-user" )
+    url(r'^create-account/$', views.new_user, name="create-account" )
 ]

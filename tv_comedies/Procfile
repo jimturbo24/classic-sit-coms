@@ -1,0 +1,1 @@
+web: gunicorn tv_comedies.wsgi --log-file -
