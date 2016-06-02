@@ -6,8 +6,10 @@ tv_comedies is a site for fans of classic situational comedies. This site is sti
 1. Clone this repository (Fork it first if you wish to modify it at some point)
 2. Sign up for a Heroku account if you don't have one, then download the Heroku [toolbelt](https://toolbelt.heroku.com/).
 3. In a Python 3 shell (eg. iPython3) run (print a key for use in step 7):
-  * `import random`
-  * `print('DJANGO_SECRET_KEY="' + ''.join([random.SystemRandom().choice('abcdefghijklmnopqrstuvwxyz0123456789@#$%^&*(-_=+)') for i in range(50)]) + '"')`
+  * ```python
+  import random
+  print('DJANGO_SECRET_KEY="' + ''.join([random.SystemRandom().choice('abcdefghijklmnopqrstuvwxyz0123456789@#$%^&*(-_=+)') for i in range(50)]) + '"')
+  ```
 4. At the terminal command line run: $`heroku create`
 5. Step 4 will create an app with a random name like "damp-taiga-14318"
 6. At the command line run: $`heroku config:set DJANGO_SETTINGS_MODULE="tv_comedies.settings_production" --app <app name from step 4>`
