@@ -2,21 +2,22 @@
 
 {% block content %}
 
-<form action="{% url 'shows:new-user' %}" method="POST">
+<!-- <form action="{% url 'shows:create-account' %}" method="POST">
     {% csrf_token %}
     {{ form }}
     <input type="submit" value="OK">
-</form>
+</form> -->
 
 
-<form class="form-horizontal" method="POST" action="{% url 'shows:new-user' %}">
+<form class="form-horizontal" method="POST" action="{% url 'shows:create-account' %}">
   {% csrf_token %}
   <fieldset>
     <legend>Create an account</legend>
+
     <div class="form-group">
       <label for="id_username" class="col-lg-2 control-label">Username</label>
       <div class="col-lg-2">
-        {{ form.user_name }}
+        <!-- {{ form.user_name }} -->
         <input type="text" class="form-control" id="id_username" placeholder="Username" name="user_name">
       </div>
     </div>
@@ -26,6 +27,7 @@
         <input type="password" class="form-control" id="id_password" placeholder="Password" name="password">
       </div>
     </div>
+
     <div class="form-group">
       <div class="col-lg-10 col-lg-offset-2">
         <button type="reset" class="btn btn-default">Cancel</button>
