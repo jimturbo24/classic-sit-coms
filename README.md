@@ -14,10 +14,10 @@ print('DJANGO_SECRET_KEY="' + ''.join([random.SystemRandom().choice('abcdefghijk
 * Step 4 will create an app with a random name like "damp-taiga-14318"
 * At the command line run: $`heroku config:set DJANGO_SETTINGS_MODULE="tv_comedies.settings_production" --app <app name from step 4>`
 * Next run: $`heroku config:set DJANGO_SECRET_KEY="<key from step 3>" --app <app name from step 4>`
-* Next run: $ `heroku git:remote --app <app name from step 4>`
+* Next run: $`heroku git:remote --app <app name from step 4>`
 * From the classic-sit-coms directory run: $ `git subtree push --prefix tv_comedies/ heroku master`
-* Next run: $ `heroku ps:scale web=1`
-* View the app in a web browser by navigating to: https://<app name from step 4>.herokuapp.com/login/
+* Next run: $`heroku ps:scale web=1`
+* View the app in a web browser by navigating to: `https://<app name from step 4>.herokuapp.com/login/`
 
 ### Design
 
