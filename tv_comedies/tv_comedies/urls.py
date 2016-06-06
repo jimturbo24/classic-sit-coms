@@ -16,10 +16,11 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from rest_framework import routers
-from shows.api import UserViewSet
+from shows.api import UserViewSet, ShowViewSet
 
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
+router.register(r'shows', ShowViewSet)
 
 urlpatterns = [
     url(r'^', include('django.contrib.auth.urls')),
